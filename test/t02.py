@@ -26,6 +26,10 @@ df = pd.DataFrame(data)
 # 标准化后：数据均值变为 0，标准差变为 1
 scaler = StandardScaler()
 
+print("原始数据：\n",df) 
+print("数据标准化器：\n",scaler)
+print("数据标准化器参数：\n",scaler.get_params())
+
 # ==========================================
 # 3. 对数据进行标准化
 # ==========================================
@@ -41,7 +45,11 @@ scaler = StandardScaler()
 #   如果不指定，列名会丢失，变成默认的 0, 1, 2...
 df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)
 
+
+print("数据scaler：\n",scaler.fit_transform(df))
 # 输出标准化后的结果
 # 每个数值表示原始值偏离均值几个标准差
 # 例如 1.2 表示该值比均值高 1.2 个标准差
-print(df_scaled)
+print("标准化后数据：\n",df_scaled)
+
+

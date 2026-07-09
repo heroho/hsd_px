@@ -7,8 +7,8 @@ import numpy as np
 # 1. 创建随机数据
 # ==========================================
 # 固定随机种子为 42，保证每次运行生成的随机数完全相同，便于结果复现
-np.random.seed(42)
-
+RandomSeed = 42
+np.random.seed(RandomSeed)
 # 用字典定义两列数据：
 #   Score: 从正态分布中采样，均值 70，标准差 10，生成 100 个样本
 #          np.random.normal(loc, scale, size)
@@ -42,6 +42,7 @@ df = pd.DataFrame(data)
 #   max    - 最大值
 print(df.describe())
 
+
 # ==========================================
 # 3. 计算 Score 列的中位数
 # ==========================================
@@ -62,3 +63,9 @@ print("Median Score:", df['Score'].median())
 # 注意：这里的 Score 和 Hours_Studied 是独立生成的随机数
 # 所以相关系数应该接近 0，表示两者没有线性关系
 print("Correlation:", df['Score'].corr(df['Hours_Studied']))
+
+
+
+# 指定低值和高值，同时指定大小
+arr2 = np.random.uniform(low=-5.0, high=5.0, size=(2, 3))
+print("Random Array 2:\n", arr2)
